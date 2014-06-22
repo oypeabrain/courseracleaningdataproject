@@ -7,7 +7,7 @@ For this dataset, I stripped the data down to mean and standard deviation measur
 
 ### Codebook
 
-**bold** Variables  
+**Variables**  
 Average of the mean values and average of the standard deviation measures for the following 33 signal types, where a 't' prefix denotes time and 'f' prefix indicates frequency domain signals. Acc refers to accerlation, gyro refers to gyrometric measurements. Mean indicates mean, StDev indicates standard deviation. An 'XYZ' suffix in the list below means that there are 3 axial factors (and thus, variables) for that particular signal- X, Y, and Z.
 
 The original acceleration signal was split into body and gravity acceleration signals using a low pass butterworth filter with a corner frequency of 0.3 Hz:  
@@ -33,7 +33,7 @@ fBodyAccJerkMagMean, fBodyAccJerkMagStDev
 fBodyGyroMagMean, fBodyGyroMagStDev  
 fBodyGyroJerkMagMean, fBodyGyroJerkMagStDev  
 
-**bold** Units  
+**Units**  
 The original acceleration signals were measured in standard gravity units 'g' and the gyroscope data was measured in radians/second. However, during the processing of the data, everything was scaled by dividing by the range, meaning that the units are cancelled. So each number in our dataset is essentially a ratio.
 
 Link to original study: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones#
