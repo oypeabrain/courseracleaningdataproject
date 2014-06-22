@@ -1,6 +1,6 @@
 #Course Project
 
-#Read in the data (assuming it is saved to working directory)
+#Read in the data (saved to working directory)
 testsubject <- read.table(file = file.path("UCI HAR Dataset/test", "subject_test.txt"))
 testx <- read.table(file = file.path("UCI HAR Dataset/test", "X_test.txt"))
 testy <- read.table(file = file.path("UCI HAR Dataset/test", "y_test.txt"))
@@ -24,18 +24,22 @@ testdat <- cbind(testsubject, testx, testy)
 #Check that the variables are the same in both sets
 sum(names(testx) == names(trainx)) #this should equal 66
 
-#Merge training and test sets to create 1 data set
+#Merge training and test sets by binding rows to create 1 data set
 fulldata <- rbind(traindat, testdat)
 dim(fulldata) #this should be 10299 rows with 68 columns, including labels
 
 #Rename variables and activity names
+#Clean up current variable names by removing special characters
 varnames <- signals[colsubset]
 varnames <- gsub("-", "", varnames)
 varnames <- gsub("mean\\()", "Mean", varnames)
 varnames <- gsub("std\\()", "StDev", varnames)
+#Assign new variables to column names
 names(fulldata) = c("Subject", varnames, "Activity")
+
+#Replace indicator variables for activities with actual names
 library(plyr)
-fulldata$Activity = mapvalues(fulldata$Activity, from = c(1,2,3,4,5,6), to = c("Walking", "Walking Upstairs", "Walking Downstairs", "Sitting", "Standing", "Laying"))
+fulldata$Activity = mapvalues(fulldata$Activity, from = c(1,2,3,4,5,6), to = c("Walking", "WalkingUpstairs", "WalkingDownstairs", "Sitting", "Standing", "Laying"))
 
 #Reshape the data frame to be more concise
 library(reshape2)
