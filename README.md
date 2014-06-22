@@ -15,12 +15,12 @@ My next step was to create separate testing and training sets. I used cbind to b
 
 In order to facilitate reshaping the data later, I assigned the full variable names back to their respective columns and used the plyr package to easily assign the full activity name to the 6 activity markers. In order to create easier-to-read variables, I used the gsub() function to take out all the hyphens in the variable names, then replaced mean() and std() with Mean and StDev, to remove the parentheses, and to capitalize the functions for easier reading.
 
-The last step was to reshape the data and obtain just the mean of each variable for each of the 6 activities that each volunteer performed, meaning that the final tidy set should have 180 observations. The first part of doing this was to load the reshape2 package and melt the data using the subject and the activity as the id markers- this means that the data will be melted into a long list of every variable name and value, along with the subject marker and the activity performed. I then took this data and recast it using dcast(), where my formula was Subject + Activity ~ variable, mean. This means that I want just the mean of each variable for only the 180 unique combinations of subject and activity. So for each subject and activity, we have just the average of each variable.
+The last step was to reshape the data and obtain the mean of each variable for each of the 6 activities that each of the 30 volunteers performed, meaning that the final tidy set should have 180 observations. The first part of doing this was to load the reshape2 package and melt the data using the subject and the activity as the id markers- this means that the data will be melted into a long list of every variable name and value, along with the corresponding subject marker and the activity performed. I then took this data and recast it using dcast(), where my formula was Subject + Activity ~ variable, mean. What thid does is return just the mean of each variable for only the 180 unique combinations of subject and activity. So for each subject and their activities, we have just the average of all the observations of each variable.
 
 Finally, the code writes the new tidy dataset to a text file using commas as delimiters for reading in as either .csv or .txt.
 
 My Tidy Set
 1.) Each variable is in 1 column
 2.) Each observation is in 1 row (all the observations in my set are unique combinations of subject/activity)
-3.) One table for every kind of variable (all the data in my dataset is derived from the same study and signals)
+3.) One table for every kind of variable (all the data in my dataset is derived from the same study and type of signals)
 4.) Column names have readable variable names
