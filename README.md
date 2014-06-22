@@ -19,7 +19,7 @@ The last step was to reshape the data and obtain just the mean of each variable 
 Finally, the code writes the new tidy dataset to a text file using commas as delimiters for reading in as either .csv or .txt.
 
 My Tidy Set
-Each variable is in 1 column
-Each observation is in 1 row (all the observations in my set are unique combinations of subject/activity)
-One table for every kind of variable (all the data in my dataset is derived from the same study and signals)
-Column names have readable variable names
+1.) Each variable is in 1 column
+2.) Each observation is in 1 row (all the observations in my set are unique combinations of subject/activity)
+3.) One table for every kind of variable (all the data in my dataset is derived from the same study and signals)
+4.) Column names have readable variable names
