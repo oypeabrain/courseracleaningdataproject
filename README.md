@@ -4,6 +4,7 @@ courseracleaningdataproject
 Course Project for Coursera Data Science 3- Getting and Cleaning Data
 
 The data can be downloaded and unzipped at https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+
 My script (and explanations) will assume you have downloaded and unzipped this dataset into your working directory.
 
 My first step in dealing with this data was to look at how the data was laid out. I saw that the data was split into testing and training sets. Within each of these sets were the subject labels, the signal data, and the activity markers. After seeing this, I wrote code to read in these 6 files and assign them to clearly named variables, making sure to specify the pathway to each file, since they lie in different folders within the main UCI HAR Dataset folder. I also read in the features file to parse for the mean and SD variables.
